@@ -1,0 +1,430 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Institutional Chatbot Design System */
+
+@layer base {
+  :root {
+    /* Base colors - Professional blue/teal palette */
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Professional corporate blue */
+    --primary: 210 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 85% 40%;
+    --primary-light: 210 85% 95%;
+
+    /* Secondary - Soft teal accent */
+    --secondary: 180 45% 92%;
+    --secondary-foreground: 180 50% 25%;
+    --secondary-hover: 180 45% 88%;
+
+    /* Muted - Subtle backgrounds */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 50%;
+
+    /* Accent - Interactive elements */
+    --accent: 195 75% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 195 75% 45%;
+
+    /* Status colors */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 100% 60%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Chat-specific colors */
+    --chat-user: 210 85% 45%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-bot: 210 20% 96%;
+    --chat-bot-foreground: 215 25% 15%;
+
+    /* Border and input styles */
+    --border: 210 25% 88%;
+    --input: 210 25% 94%;
+    --ring: 210 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 50%) 0%, hsl(195 100% 60%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(180 45% 92%) 0%, hsl(210 85% 95%) 100%);
+    --gradient-hero: radial-gradient(circle at center, hsl(210 85% 45% / 0.15) 0%, transparent 70%);
+    --gradient-text: linear-gradient(to right, #fff, #94a3b8);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 16px -8px hsl(var(--primary) / 0.15);
+    --shadow-medium: 0 8px 32px -12px hsl(var(--primary) / 0.2);
+    --shadow-chat: 0 2px 8px -2px hsl(var(--primary) / 0.1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 263.4 70% 50.4%;
+    /* Deep Stellar Purple */
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 263.4 70% 45.4%;
+    --primary-light: 263.4 70% 15%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 217.2 32.6% 20%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 263.4 70% 50.4%;
+    --accent-foreground: 210 40% 98%;
+    --accent-hover: 263.4 70% 45.4%;
+
+    --success: 142 70% 50%;
+    --success-foreground: 222.2 84% 4.9%;
+    --warning: 38 100% 65%;
+    --warning-foreground: 222.2 84% 4.9%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --chat-user: 263.4 70% 50.4%;
+    --chat-user-foreground: 210 40% 98%;
+    --chat-bot: 217.2 32.6% 17.5%;
+    --chat-bot-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263.4 70% 50.4%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 263.4 70% 50.4%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-colors;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Custom animations */
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes bounce-gentle {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes theme-transition {
+    0% {
+      opacity: 0.8;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideInUp 0.4s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-bounce-gentle {
+    animation: bounce-gentle 2s ease-in-out infinite;
+  }
+
+  .animate-theme-transition {
+    animation: theme-transition 0.3s ease-out;
+  }
+
+  /* Additional professional animations */
+  .animate-slideInUp {
+    animation: slideInUp 0.6s ease-out;
+  }
+
+  /* Hover and interactive effects */
+  .hover-scale {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  .hover-lift {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.2);
+  }
+
+  .hover-glow-strong {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow-strong:hover {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.5);
+  }
+
+  /* Background patterns */
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle, hsl(var(--primary) / 0.1) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Gradient text effects */
+  .gradient-text-premium {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+
+  .mask-radial {
+    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+  }
+
+  /* Enhanced shadows */
+  .shadow-elegant {
+    box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.1);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.15);
+  }
+
+  /* Professional gradients */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Theme transition for all elements */
+  *,
+  *::before,
+  *::after {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Custom focus styles */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Glassmorphism Classes */
+  .glass-morphism {
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+
+  .glass-morphism-strong {
+    @apply bg-white/[0.07] backdrop-blur-3xl border border-white/20 shadow-2xl;
+  }
+
+  .stellar-card {
+    @apply relative overflow-hidden rounded-[2.5rem] bg-[#12121e]/40 border border-white/5 backdrop-blur-3xl transition-all duration-500 hover:bg-[#12121e]/60 hover:border-purple-500/30;
+  }
+
+  .stellar-border {
+    @apply border border-white/10;
+  }
+
+  /* Stellar Gradients */
+  .gradient-stellar {
+    background: linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #6366f1 100%);
+  }
+
+  .gradient-stellar-text {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(to right, #ffffff, #a855f7, #6366f1);
+  }
+
+  /* Deep Space Decorations */
+  .neural-grid {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .nebula-glow {
+    @apply absolute rounded-full blur-[120px] pointer-events-none opacity-50;
+  }
+
+  /* Animations Enhancement */
+  @keyframes orb-float {
+
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+
+    33% {
+      transform: translate(30px, -50px);
+    }
+
+    66% {
+      transform: translate(-20px, 20px);
+    }
+  }
+
+  .animate-orb {
+    animation: orb-float 20s ease-in-out infinite;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

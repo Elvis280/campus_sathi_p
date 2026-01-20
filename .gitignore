@@ -1,0 +1,230 @@
+# ===========================
+# Python / Backend
+# ===========================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
+
+# Virtual Environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.pytest_cache/
+.hypothesis/
+coverage.xml
+*.cover
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# ===========================
+# Node / Frontend
+# ===========================
+
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+
+# Production build
+dist/
+dist-ssr/
+build/
+*.local
+
+# Package lock files (keep yarn.lock or package-lock.json based on your preference)
+# Uncomment the one you don't want to commit:
+# package-lock.json
+# yarn.lock
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# Frontend build artifacts
+.cache/
+.parcel-cache/
+.next/
+out/
+.nuxt/
+.vuepress/dist/
+.docusaurus/
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ===========================
+# Environment Variables
+# ===========================
+
+# CRITICAL - Contains API keys and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# ===========================
+# Project Specific
+# ===========================
+
+# Vector Databases & Indexes
+faiss_store/
+chroma_db/
+VectorStore/
+*.faiss
+*.index
+*.pkl
+*.pickle
+
+# Uploaded PDFs and Data
+Backend/data/*.pdf
+data/*.pdf
+uploads/
+*.pdf
+!Backend/data/.gitkeep
+!docs/*.pdf
+
+# Processed chunks and embeddings
+chunks/
+embeddings/
+
+# ===========================
+# IDE / Editors
+# ===========================
+
+# VSCode
+.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ===========================
+# Operating System
+# ===========================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ===========================
+# Git
+# ===========================
+
+*.orig
+*.rej
+.git/
+.gitattributes
+
+# ===========================
+# Misc
+# ===========================
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+.temp/
+
+# Lock files
+*.lock
+!package-lock.json
+!yarn.lock
+!pnpm-lock.yaml
+!bun.lockb
+
+# Secrets and keys
+*.pem
+*.key
+secrets/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Compressed files (unless intentional)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation build
+docs/_build/
+site/

@@ -1,0 +1,38 @@
+services:
+  # Backend Service
+  - type: web
+    name: campus-sathi-backend
+    env: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: Backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PYTHON_VERSION
+        value: 3.10.0
+    healthCheckPath: /api/health
+    
+  # Frontend Static Site
+  - type: web
+    name: campus-sathi-frontend
+    env: static
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: Frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://campus-sathi-backend.onrender.com
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
